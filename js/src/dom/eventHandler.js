@@ -149,10 +149,6 @@ const EventHandler = (() => {
   function bootstrapHandler(element, fn) {
     return function handler(event) {
       fixEvent(event, element)
-      if (handler.oneOff) {
-        EventHandler.off(element, event.type, fn)
-      }
-
       return fn.apply(element, [event])
     }
   }
@@ -164,10 +160,6 @@ const EventHandler = (() => {
         for (let i = domElements.length; i--;) {
           if (domElements[i] === target) {
             fixEvent(event, target)
-            if (handler.oneOff) {
-              EventHandler.off(element, event.type, fn)
-            }
-
             return fn.apply(target, [event])
           }
         }
@@ -184,7 +176,7 @@ const EventHandler = (() => {
         continue
       }
 
-      if (events[uid].originalHandler === handler) {
+      if (events[uid].originalHandler === handler || uid === handler.uid) {
         return events[uid]
       }
     }
@@ -192,7 +184,7 @@ const EventHandler = (() => {
     return null
   }
 
-  function addHandler(element, originalTypeEvent, handler, delegationFn, oneOff) {
+  function addHandler(element, originalTypeEvent, handler, delegationFn) {
     if (typeof originalTypeEvent !== 'string' || (typeof element === 'undefined' || element === null)) {
       return
     }
@@ -220,21 +212,19 @@ const EventHandler = (() => {
 
     const events     = getEvent(element)
     const handlers   = events[typeEvent] || (events[typeEvent] = {})
-    const previousFn = findHandler(handlers, originalHandler)
-
-    if (previousFn) {
-      previousFn.oneOff = previousFn.oneOff && oneOff
-      return
-    }
 
     const uid = getUidEvent(originalHandler, originalTypeEvent.replace(namespaceRegex, ''))
     const fn  = !delegation ? bootstrapHandler(element, handler) : bootstrapDelegationHandler(element, handler, delegationFn)
 
     fn.isDelegation = delegation
     fn.originalHandler = originalHandler
-    fn.oneOff = oneOff
-    handlers[uid] = fn
 
+    const realHandler = delegation ? delegationFn : handler
+    if (typeof realHandler.isOne !== 'undefined' && realHandler.isOne) {
+      realHandler.uid = uid
+    }
+
+    handlers[uid] = fn
     element.addEventListener(typeEvent, fn, delegation)
   }
 
@@ -267,7 +257,19 @@ const EventHandler = (() => {
     },
 
     one(element, event, handler, delegationFn) {
-      addHandler(element, event, handler, delegationFn, true)
+      const isDelegation = typeof handler === 'string'
+      const realHandler  = isDelegation ? delegationFn : handler
+      function complete(e) {
+        EventHandler.off(element, e.type, complete)
+        realHandler.apply(element, [e])
+      }
+      complete.isOne = true
+      if (isDelegation) {
+        addHandler(element, event, handler, complete)
+      } else {
+        addHandler(element, event, complete)
+      }
+      realHandler.uid = complete.uid.toString()
     },
 
     off(element, originalTypeEvent, handler) {
