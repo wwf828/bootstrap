@@ -10,8 +10,6 @@ import Tooltip from './tooltip'
  */
 
 const Popover = (($) => {
-
-
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -30,10 +28,10 @@ const Popover = (($) => {
     placement : 'right',
     trigger   : 'click',
     content   : '',
-    template  : '<div class="popover" role="tooltip">'
-              + '<div class="arrow"></div>'
-              + '<h3 class="popover-header"></h3>'
-              + '<div class="popover-body"></div></div>'
+    template  : '<div class="popover" role="tooltip">' +
+              '<div class="arrow"></div>' +
+              '<h3 class="popover-header"></h3>' +
+              '<div class="popover-body"></div></div>'
   })
 
   const DefaultType = $.extend({}, Tooltip.DefaultType, {
@@ -71,8 +69,6 @@ const Popover = (($) => {
    */
 
   class Popover extends Tooltip {
-
-
     // getters
 
     static get VERSION() {
@@ -132,10 +128,10 @@ const Popover = (($) => {
     // private
 
     _getContent() {
-      return this.element.getAttribute('data-content')
-        || (typeof this.config.content === 'function' ?
-              this.config.content.call(this.element) :
-              this.config.content)
+      return this.element.getAttribute('data-content') ||
+        (typeof this.config.content === 'function'
+          ? this.config.content.call(this.element)
+          : this.config.content)
     }
 
     _cleanTipClass() {
@@ -188,7 +184,6 @@ const Popover = (($) => {
   }
 
   return Popover
-
 })($)
 
 export default Popover
