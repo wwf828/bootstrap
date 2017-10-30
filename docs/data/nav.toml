@@ -1,0 +1,206 @@
+[[group]]
+title = "Getting started"
+
+[[group.pages]]
+title = "Introduction"
+
+[[group.pages]]
+title = "Download"
+
+[[group.pages]]
+title = "Contents"
+
+[[group.pages]]
+title = "Browsers & devices"
+
+[[group.pages]]
+title = "JavaScript"
+
+[[group.pages]]
+title = "Theming"
+
+[[group.pages]]
+title = "Build tools"
+
+[[group.pages]]
+title = "Webpack"
+
+[[group.pages]]
+title = "Accessibility"
+
+[[group]]
+title = "Layout"
+
+[[group.pages]]
+title = "Overview"
+
+[[group.pages]]
+title = "Grid"
+
+[[group.pages]]
+title = "Media object"
+
+[[group.pages]]
+title = "Utilities for layout"
+
+[[group]]
+title = "Content"
+
+[[group.pages]]
+title = "Reboot"
+
+[[group.pages]]
+title = "Typography"
+
+[[group.pages]]
+title = "Code"
+
+[[group.pages]]
+title = "Images"
+
+[[group.pages]]
+title = "Tables"
+
+[[group.pages]]
+title = "Figures"
+
+[[group]]
+title = "Components"
+
+[[group.pages]]
+title = "Alerts"
+
+[[group.pages]]
+title = "Badge"
+
+[[group.pages]]
+title = "Breadcrumb"
+
+[[group.pages]]
+title = "Buttons"
+
+[[group.pages]]
+title = "Button group"
+
+[[group.pages]]
+title = "Card"
+
+[[group.pages]]
+title = "Carousel"
+
+[[group.pages]]
+title = "Collapse"
+
+[[group.pages]]
+title = "Dropdowns"
+
+[[group.pages]]
+title = "Forms"
+
+[[group.pages]]
+title = "Input group"
+
+[[group.pages]]
+title = "Jumbotron"
+
+[[group.pages]]
+title = "List group"
+
+[[group.pages]]
+title = "Modal"
+
+[[group.pages]]
+title = "Navs"
+
+[[group.pages]]
+title = "Navbar"
+
+[[group.pages]]
+title = "Pagination"
+
+[[group.pages]]
+title = "Popovers"
+
+[[group.pages]]
+title = "Progress"
+
+[[group.pages]]
+title = "Scrollspy"
+
+[[group.pages]]
+title = "Tooltips"
+
+[[group]]
+title = "Utilities"
+
+[[group.pages]]
+title = "Borders"
+
+[[group.pages]]
+title = "Clearfix"
+
+[[group.pages]]
+title = "Close icon"
+
+[[group.pages]]
+title = "Colors"
+
+[[group.pages]]
+title = "Display"
+
+[[group.pages]]
+title = "Embed"
+
+[[group.pages]]
+title = "Flex"
+
+[[group.pages]]
+title = "Float"
+
+[[group.pages]]
+title = "Image replacement"
+
+[[group.pages]]
+title = "Position"
+
+[[group.pages]]
+title = "Screenreaders"
+
+[[group.pages]]
+title = "Sizing"
+
+[[group.pages]]
+title = "Spacing"
+
+[[group.pages]]
+title = "Text"
+
+[[group.pages]]
+title = "Vertical align"
+
+[[group.pages]]
+title = "Visibility"
+
+[[group]]
+title = "Extend"
+
+[[group.pages]]
+title = "Icons"
+
+[[group]]
+title = "Migration"
+
+[[group]]
+title = "About"
+
+[[group.pages]]
+title = "Overview"
+
+[[group.pages]]
+title = "Brand"
+
+[[group.pages]]
+title = "License"
+
+[[group.pages]]
+title = "Translations"
