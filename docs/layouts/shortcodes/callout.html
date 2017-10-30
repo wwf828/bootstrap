@@ -1,4 +1,4 @@
 {{ $type := .Get 0 }}
 <div class="bd-callout bd-callout-{{ $type }}">
-{{ .Inner | markdownify }}
+{{- .Inner | markdownify -}}
 </div>

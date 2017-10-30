@@ -69,6 +69,7 @@ Here are some representative examples of these classes:
 {{< /highlight >}}
 
 ### Horizontal centering
+
 Additionally, Bootstrap also includes an `.mx-auto` class for horizontally centering fixed-width block level content—that is, content that has `display: block` and a `width` set—by setting the horizontal margins to `auto`.
 
 <div class="bd-example">
